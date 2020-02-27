@@ -1,0 +1,283 @@
+/** BASE STYLES **/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  --background: #18181d;
+  --primary: #14264d;
+  --primary-light:#162c5e;
+  --surface:#3a3a41;
+  --text-dark:#000000;
+  --text-light:#ffffff;
+  --error:#f14780;
+  
+}
+
+body{
+  background-color: var(--background);
+}
+body, html, #root, .app{
+  height: 100%;
+}
+
+
+
+.text--large{
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight:500;
+}
+.text--medium {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.text--light{
+  color: var(--text-light);
+}
+.text--dark{
+  color: var(--text-dark);
+}
+.text--center{
+  text-align:center;
+}
+
+/** NAVBAR STYLES **/
+.navbar{
+  background-color: var(--primary);
+  padding: 1rem 1rem;
+}
+
+
+/** CARD GRID STYLES **/
+
+main {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-gap: 40px;
+  padding: 60px 0;
+  height:100%;
+}
+
+.cards {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 60px));
+  grid-gap: 40px;
+  padding-bottom: 40px;
+}
+
+.card {
+  grid-column-end: span 3;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  transition: all 0.3s ease 0s;
+  box-shadow: 0 4px 8px 0 rgba(55, 67, 73, 0.849);
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 16px 0 rgba(132, 128, 175, 0.2);
+}
+
+.card__img-container {
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__img-container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-title{
+  margin-bottom: 20px;
+}
+.card-title-input{
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+
+.card-content {
+  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  height: 100%;
+}
+
+.card-description {
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-description-input{
+  margin-bottom: 10px;
+  flex-grow: 1
+}
+
+.card-info {
+  display: flex;
+  width:100%;
+  align-self: end;
+  align-items: center;
+  justify-self: flex-end;
+  justify-content: space-between;
+}
+
+.card-price {
+  margin-left: auto;
+  padding: 5px 20px;
+  background-color: #303032;
+  border-radius: 20px;
+}
+
+.card-icons{
+ display:flex;
+ align-items: center;
+ width: 40%;
+ justify-content: space-between;
+}
+
+.card-icons button{
+  background-color:var(--primary-light);
+  border-radius: 10px;
+}
+
+.fa-check{
+  color:var(--text-light);
+  padding: 5px 10px;
+}
+.fa-edit{
+  color:var(--text-light);
+  padding: 5px 10px;
+}
+.fa-trash{
+  color: var(--text-light);
+  padding: 5px 10px;
+}
+
+/** LOGIN STYLES **/
+
+.login-container{
+  grid-column: 2 / span 12;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.login-form{
+  height: 50%;
+  display:flex;
+  flex-direction: column;
+  background-color:var(--surface);
+  padding: 1rem;
+}
+.login-header{
+  margin-bottom: 2rem;
+}
+
+.label{
+  margin-bottom: 0.5rem;
+}
+
+.login-input{
+  flex-grow: 1;
+  display: flex;
+  flex-direction:column;
+  
+}
+.input-group{
+  margin-bottom:2rem;
+}
+
+.input-group input{
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.button-group{
+  display:flex;
+  justify-content: space-between;
+}
+.login-button{
+  padding: 5px 10px;
+  width: 40%;
+}
+.signup-button{
+  padding: 5px 10px;
+  width: 40%;
+}
+
+.login-alert{
+  background-color:#a30808;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+
+@media only screen and (max-width: 1600px) {
+  .login-container{
+    width:60%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .card {
+    grid-column-end: span 6;
+  }
+  .login-container{
+    width:70%;
+  }
+  .card-icons{
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 12;
+  }
+  .login-container{
+    width:80%;
+  }
+  .login-form{
+    height: 55%;
+  }
+  .card-icons{
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    grid-gap: 10px;
+  }
+  .cards {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .card {
+    grid-column-end: span 6;
+  }
+  .login-container{
+    width:90%;
+  }
+  .card-icons{
+    width: 35%;
+  }
+}
